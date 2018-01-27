@@ -48,6 +48,18 @@ public class Calculos implements Calculadora{
                       ||caracter.contentEquals("7")||caracter.contentEquals("8")||caracter.contentEquals("9")){
                         vector.push(caracter);
                     }else if(caracter.contentEquals("+")){
+                        int num1 = Integer.parseInt(vector.pop());
+                        int num2 = Integer.parseInt(vector.pop());
+                        result = suma(num1,num2);
+                        vector.push(Double.toString(result));
+                    }else if(caracter.contentEquals("-")){
+                        int num1 = Integer.parseInt(vector.pop());
+                        int num2 = Integer.parseInt(vector.pop());
+                        result = resta(num1,num2);
+                        vector.push(Double.toString(result));
+                    }else if(caracter.contentEquals("*")){
+                        
+                    }else if(caracter.contentEquals("/")){
                         
                     }else{
                         System.out.println(caracter);
