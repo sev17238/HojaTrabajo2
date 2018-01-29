@@ -12,7 +12,6 @@ import java.io.FileReader;
  */
 public class Calculos implements Calculadora{
     
-    
     public Calculos(){
         
     }
@@ -23,7 +22,7 @@ public class Calculos implements Calculadora{
      * @return 
      */
     @Override
-    public double Operar(String ee){
+    public double Operar(){
         double result = 0;
         StackVector<String> vector = new StackVector<String>(); 
         
@@ -47,24 +46,34 @@ public class Calculos implements Calculadora{
                       ||caracter.contentEquals("4")||caracter.contentEquals("5")||caracter.contentEquals("6")
                       ||caracter.contentEquals("7")||caracter.contentEquals("8")||caracter.contentEquals("9")){
                         vector.push(caracter);
+                    //int num = Double.parseDouble(caracter);
+                    //if (num>=0 && num<=9){
+                        //vector.push(caracter);
                     }else if(caracter.contentEquals("+")){
-                        int num1 = Integer.parseInt(vector.pop());
-                        int num2 = Integer.parseInt(vector.pop());
-                        result = suma(num1,num2);
+                        result = Double.parseDouble(vector.pop());
+                        double num2 = Double.parseDouble(vector.pop());
+                        result = suma(num2,result);
                         vector.push(Double.toString(result));
                     }else if(caracter.contentEquals("-")){
-                        int num1 = Integer.parseInt(vector.pop());
-                        int num2 = Integer.parseInt(vector.pop());
-                        result = resta(num1,num2);
+                        result = Double.parseDouble(vector.pop());
+                        double num2 = Double.parseDouble(vector.pop());
+                        result = resta(num2,result);
                         vector.push(Double.toString(result));
                     }else if(caracter.contentEquals("*")){
-                        
+                        result = Double.parseDouble(vector.pop());
+                        double num2 = Double.parseDouble(vector.pop());
+                        result = producto(result,num2);
+                        vector.push(Double.toString(result));
                     }else if(caracter.contentEquals("/")){
-                        
+                        result = Double.parseDouble(vector.pop());
+                        double num2 = Double.parseDouble(vector.pop());
+                        result = division(num2,result);
+                        vector.push(Double.toString(result));
                     }else{
-                        System.out.println(caracter);
+                        //System.out.println(caracter);
                     }            
                 }
+            //System.out.println(result);
                   
       }catch(Exception e){
          e.printStackTrace();
