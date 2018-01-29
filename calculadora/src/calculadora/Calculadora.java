@@ -8,6 +8,6 @@ package calculadora;
  */
 public interface Calculadora {
     
-    public double Operar();
+    public double Operar(String e);
     
 }
