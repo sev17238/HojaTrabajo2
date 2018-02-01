@@ -17,7 +17,7 @@ public class Calculos implements Calculadora{
         
     }
     /**
-     * Con este metodo se puede leer cada linea de un archivo de texto asi como cada letra de 
+     * Con este metodo se puede leer cada linea de un archivo de texto asi como cada numero de 
      * cada linea del arcivo.
      * @param linea
      * @return 
@@ -44,22 +44,32 @@ public class Calculos implements Calculadora{
                     //Cabe notar que en los Stacks solamente se puede sacar el 
                     //Ultimo valor asi que para operar se guarda este valor de forma
                     //Temporal en una variable para que asi de esta forma
-                    //
+                    //se pueda operar el ultimo elemento despues del antepenultimo
+                    //en la operacion, de tal forma que obtiene un valor a y un valor b
+                    //pero los opera como b (signo)a
+                    
                     else if(caracter.contentEquals("+")){
-                        result = Double.parseDouble(vector.pop());
-                        double num2 = Double.parseDouble(vector.pop());
-                        result = suma(num2,result);
+                        
+                        result = Double.parseDouble(vector.pop())+ Double.parseDouble(vector.pop());
                         vector.push(Double.toString(result));
+                        //result = Double.parseDouble(vector.pop());
+                        //double num2 = Double.parseDouble(vector.pop());
+                        //result = suma(num2,result);
+                        //vector.push(Double.toString(result));
                     }else if(caracter.contentEquals("-")){
-                        result = Double.parseDouble(vector.pop());
-                        double num2 = Double.parseDouble(vector.pop());
-                        result = resta(num2,result);
+                        result = -Double.parseDouble(vector.pop())+ Double.parseDouble(vector.pop());
                         vector.push(Double.toString(result));
+                        //result = Double.parseDouble(vector.pop());
+                        //double num2 = Double.parseDouble(vector.pop());
+                        //result = resta(num2,result);
+                        //vector.push(Double.toString(result));
                     }else if(caracter.contentEquals("*")){
-                        result = Double.parseDouble(vector.pop());
-                        double num2 = Double.parseDouble(vector.pop());
-                        result = producto(result,num2);
+                        result = Double.parseDouble(vector.pop())* Double.parseDouble(vector.pop());
                         vector.push(Double.toString(result));
+                        //result = Double.parseDouble(vector.pop());
+                        //double num2 = Double.parseDouble(vector.pop());
+                        //result = producto(result,num2);
+                        //vector.push(Double.toString(result));
                     }else if(caracter.contentEquals("/")){
                         //La division tiene una condicion en la cual si el 
                         //Ultimo valor del vector es igual a 0 definitivamente no
@@ -70,10 +80,12 @@ public class Calculos implements Calculadora{
                             System.out.println("Error, no se puede dividir entre 0");
                         }
                         else {
-                        result = Double.parseDouble(vector.pop());
-                        double num2 = Double.parseDouble(vector.pop());
-                        result = division(num2,result);
-                        vector.push(Double.toString(result));
+                        result = (1/Double.parseDouble(vector.pop()))* Double.parseDouble(vector.pop());
+                        vector.push(Double.toString(result));    
+                        //result = Double.parseDouble(vector.pop());
+                        //double num2 = Double.parseDouble(vector.pop());
+                        //result = division(num2,result);
+                        //vector.push(Double.toString(result));
                         }       
                     }else{
                         //System.out.println(caracter);
