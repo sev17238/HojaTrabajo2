@@ -84,6 +84,7 @@ public class Calculos implements Calculadora{
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Revise su formato PostFix, \n"
                     + "es posible que tenga signos repetidos.", "Signos repetidos", JOptionPane.ERROR_MESSAGE);
+            result = Double.NaN;
         }                    
         return result;        
     }

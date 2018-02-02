@@ -11,8 +11,8 @@ import java.io.FileReader;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author SDiego
+ * @author Guillermo Sandoval
+ * @author Diego Sevilla
  */
 public class GUICalculos extends javax.swing.JFrame {
     Calculos calc;
