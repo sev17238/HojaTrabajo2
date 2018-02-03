@@ -9,8 +9,9 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * @author Guillermo Sandoval
- * @author Diego Sevilla
+ * Clase para puebas unitarias de la clase Calculos.
+ * @author Guillermo Sandoval 17577
+ * @author Diego Sevilla 17238
  */
 public class CalculosTest {
     
@@ -71,9 +72,6 @@ public class CalculosTest {
         Calculos instance = new Calculos();
         double expResult = 16.0;
         double result = instance.producto(num1,num2);
-        assertEquals(expResult, result, 0.0);
-        
-    }
-    
-    
+        assertEquals(expResult, result, 0.0);        
+    }    
 }

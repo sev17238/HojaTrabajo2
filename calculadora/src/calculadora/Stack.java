@@ -2,9 +2,9 @@
 package calculadora;
 
 /**
- *
- * @author Guillermo Sandoval
- * @author Diego Sevilla
+ * Interfaz con el comportamiento y los metodos utilizados en la clase StackVector.
+ * @author Guillermo Sandoval 17577
+ * @author Diego Sevilla 17238
  */
 public interface Stack<E>{
    public void push(E item);

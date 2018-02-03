@@ -4,24 +4,23 @@ package calculadora;
 import javax.swing.JOptionPane;
 
 /**
- * Clase que realiza los calculos al interpretar una linea en formato postfix
- * @author Guillermo Sandoval
- * @author Diego Sevilla
+ * Clase que realiza las operaciones pertinentes al interpretar una linea en formato postfix.
+ * @author Guillermo Sandoval 17577
+ * @author Diego Sevilla 17238
  */
 public class Calculos implements Calculadora{
-    
+    StackVector<String> vector;
     public Calculos(){
-        
+        vector = new StackVector<String>();
     }
     /**
-     * Con este metodo se pueden interpretar las operaciones PostFix en una linea de un archivo .txt
+     * Con este metodo se pueden interpretar las operaciones PostFix de una linea en un archivo .txt
      * @param linea El parametro recibido sera una linea del archivo leido en la clase principal
-     * @return El resultado generado por la operacion de la linea postfix
+     * @return El resultado generado por la operacion de la linea postfix como Double
      */
     @Override
     public double Operar(String linea){
-        double result = 0;
-        StackVector<String> vector = new StackVector<String>();                                              
+        double result = 0;                                                      
         try{
             for(int i =1;i<linea.length();i++){
                     String caracter = linea.substring((i-1), i);                                                                                   
@@ -49,8 +48,10 @@ public class Calculos implements Calculadora{
                     }else if(caracter.contentEquals("-")){
                         result = suma(-Double.parseDouble(vector.pop()),Double.parseDouble(vector.pop()));
                         vector.push(Double.toString(result));
+                        //La resta se sustituyo con el metodo de suma con un inverso aditivo
                         //result = Double.parseDouble(vector.pop());
                         //double num2 = Double.parseDouble(vector.pop());
+                    
                         //result = resta(num2,result);
                         //vector.push(Double.toString(result));
                     }else if(caracter.contentEquals("*")){
@@ -73,6 +74,7 @@ public class Calculos implements Calculadora{
                         else {
                         result = producto(1/Double.parseDouble(vector.pop()), Double.parseDouble(vector.pop()));
                         vector.push(Double.toString(result));    
+                        //El metodo se sustituyo de division a producto por el inverso aditivo 
                         //result = Double.parseDouble(vector.pop());
                         //double num2 = Double.parseDouble(vector.pop());
                         //result = division(num2,result);
@@ -82,8 +84,8 @@ public class Calculos implements Calculadora{
                 }
             //System.out.println(result);
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Revise su formato PostFix, \n"
-                    + "es posible que tenga signos repetidos.", "Signos repetidos", JOptionPane.ERROR_MESSAGE);
+            //JOptionPane.showMessageDialog(null, "Revise su formato PostFix, \n"
+              //      + "es posible que tenga signos repetidos.", "Signos repetidos", JOptionPane.ERROR_MESSAGE);
             result = Double.NaN;
         }                    
         return result;        
